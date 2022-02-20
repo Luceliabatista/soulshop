@@ -1,0 +1,69 @@
+<section class="mx-3">
+    <a href="/produtos/novo" class="btn btn-dark width-product">
+        <i class="bi bi-plus"></i>
+        Criar Livro
+    </a>
+    <hr/>
+    <form method="GET" class="mt-2 mb-2 width-product">
+        <input class="form-control form-control-sm" type="search" 
+        name="nomeProduto" value="{{ nomeProduto }}" placeholder="Nome do livro" />
+        <button class="mt-2 btn btn-sm btn-dark width-product">
+            <i class="bi bi-search"></i>
+            Buscar
+        </button>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <th></th>
+                <th>Nome</th>
+                <th>Preço</th>
+                <th>Descrição</th>
+                <th>Tipo</th>
+                <th>Cupom</th>
+                <th>Quantidade</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                {{#each produtos}}
+                    <tr>
+                        <td>
+                            {{#if this.image}}
+                                 <img src="{{this.image}}" alt="Product Image" width="72">
+                            {{else}}
+                                <img src="https://cdn.shopify.com/s/files/1/0275/0644/2328/products/placeholder-image-icon-14_e5084ace-55ca-4bae-b026-2cd407377041_512x.png?v=1637432517" alt="" width="72">
+                            {{/if}}
+                        </td>
+                        <td>{{ this.name }}</td>
+                        <td>{{ this.price }}</td>
+                        <td>{{ this.description }}</td>
+                        <td>{{ this.kind }}</td>
+                        <td>
+                            <form method="POST" action="/produtos/aplicar-cupom">
+                                <input type="hidden" name="produtoId" id="produtoId" value="{{ this._id }}">
+                                <input type="text" name="cupom" id="cupom" placeholder="Digite aqui seu cupom">
+                                <button style="border: none; background-color: #1A6065" class="d-block mt-2 w-100 p-1 text-white">Aplicar</button>
+                            </form>
+                        </td>
+                        <td>{{ this.quantity }}</td>
+                        <td>
+                            <div>
+                                <a href="/produtos/editar/{{ this._id }}" class="btn btn-sm btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                            </div>
+                            <div class="mt-2">
+                                <form name="deletarForm" method="POST" action="/produtos/deletar">
+                                    <input type="hidden" name="_id" value="{{ this._id }}">
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>

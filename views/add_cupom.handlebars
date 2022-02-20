@@ -1,0 +1,27 @@
+<section class="container my-2 mx-auto border border-2 p-4 bg-light">
+  <h2>Adicionar cupom</h2>
+  <hr />
+  <form action="/cupons/enviar" method="POST">
+    <div class="form-group mb-3 w-50">
+      <label for="name">Titulo*</label>
+      <input type="text" name="title" id="title" class="form-control" required />
+    </div>
+    <div class="form-group mb-3 w-50">
+      <label for="name">Código*</label>
+      <input type="text" name="code" id="code" class="form-control" required />
+    </div>
+    <div class="form-group mb-3 w-50">
+      <label for="category">Categoria*</label>
+      <select id="category" class="form-control" name="category" required>
+          <option value="">Escolha uma opção</option>
+          <option value="ebook">Ebook</option>
+          <option value="fisico">Físico</option>
+      </select>
+    </div>
+    <div class="form-group mb-3 w-50">
+      <label for="expDate">Validade*</label>
+      <input class="form-control" type="date" name="expDate" id="expDate" required />
+    </div>
+    <button class="btn btn-dark mt-2">Criar</button>
+  </form>
+</section>
