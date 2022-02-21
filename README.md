@@ -17,7 +17,7 @@
 
 <br/>
 
-> ## Integrantes [Squad #06] 
+> ## Integrantes [Squad #08] 
 
 | [Lucélia](https://github.com/Luceliabatista) | [Júlia Bassul](https://github.com/jubassul) | [Wellington Silva](https://github.com/welsda) | [Igor Pedrosa](https://github.com/igorlap) | [Rafaella Brunório](https://github.com/Rafafdev) |
 |----------|----------|----------| ---------- | ---------- |
